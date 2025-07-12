@@ -1,5 +1,5 @@
 .gradio/
-./chroma_db/
-./modelscope/
+chroma_db/
+modelscope/
 .env
 temp.*
