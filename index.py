@@ -25,7 +25,7 @@ logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
 
 # 定义System Prompt
-SYSTEM_PROMPT = """你是一个医疗人工智能助手。"""
+SYSTEM_PROMPT = """你是一个医疗人工智能助手。对于用户的提问，如果与医学无关，或者检索到的内容相似度较低，请直接回答：抱歉，我对于您的请求“{query_str}”不了解"""
 query_wrapper_prompt = PromptTemplate(
  "[INST]<<SYS>>\n" + SYSTEM_PROMPT + "<</SYS>>\n\n{query_str}[/INST] "
 )
@@ -55,7 +55,7 @@ Settings.llm = llm
 
 # 调用本地 embedding 模型
 Settings.embed_model = HuggingFaceEmbedding(
- model_name="modelscope\BAAI\\bge-base-zh-v1___5"
+ model_name="modelscope\\BAAI\\bge-base-zh-v1___5"
 )
 
 # 读取文档
